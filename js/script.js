@@ -47,3 +47,5 @@ function splitText(element) {
     });
     document.querySelectorAll('.animation--fade-in').forEach(element => observer.observe(element));
 })();
+
+
