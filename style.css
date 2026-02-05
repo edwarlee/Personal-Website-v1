@@ -25,9 +25,41 @@ a {
     text-decoration: none;
 }
 
+/* Text Animations */
+.animation__text--fade-in-left {
+    overflow: hidden;
+}
+
+.animation__text--fade-in-left span {
+    opacity: 0;
+    transform: translateX(-30px);
+    display: inline-block;
+    transition: all 0.4s ease-in-out;
+}
+
+/* General Animations */
+.animation--fade-in {
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+}
+
+/* Text Styles */
+.title.title--medium {
+    font-size: 2.5rem;
+}
+
+.title--small {
+    font-size: 1.2rem;
+}
+
+/* Image Styles */
+.image {
+    border-radius: 20px;
+    box-shadow: 0 10px 100px rgba(71, 151, 255, 0.8);
+}
 
 /* Navbar Styles */
-nav {
+.nav {
     margin: 1rem;
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -35,9 +67,10 @@ nav {
     backdrop-filter: blur(5px);
     border-radius: 20px;
     text-align: right;
+    transition: opacity 1s ease-in-out;
 }
 
-nav a {
+.nav__link {
     display: inline-block;
     margin: 1.5rem 3rem;
     padding: 0.8rem 1.5rem;
@@ -48,7 +81,7 @@ nav a {
     transition: ease-in-out 0.2s
 }
 
-nav a:hover {
+.nav__link:hover {
     background-color: rgba(71, 151, 255, 0.8);
     box-shadow: 0 0 10px #11abf7;
 }
@@ -62,45 +95,41 @@ nav a:hover {
     background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(6, 17, 79, 1) 100%);
 }
 
-h1 {
-    display: inline-block;
-    text-align: center;
-    padding: 3rem 5rem;
-    margin: 1rem;
+.hero__title-container {
     margin-top: 10rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 50px #333;
-    color: white
+    margin-inline: 7rem;
 }
 
-.title-container {
-    width: 100%; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.hero__title {
+    display: block;
+    color: white;
+    font-size: 4rem;
+    font-weight: 500;
+    
 }
 
-.title-container a {
-    margin-top: 7rem;
+.hero__button {
+    display: inline-block;
+    margin-top: 5rem;
     padding: 1rem 2rem;
     color: #fff;
     background: rgba(71, 151, 255, 0.1);
     border-radius: 20px;
     border: 1px solid rgba(71, 151, 255, 0.3);
     box-shadow: 0 10px 50px #333;
-    transition: ease-in-out 0.2s;
+    transition: 
+        background 0.2s ease-in-out,
+        box-shadow 0.2s ease-in-out,
+        opacity 1s 0.2s ease-in-out;
 }
 
-.title-container a:hover {
+.hero__button:hover {
     background: rgba(71, 151, 255, 0.8);
     box-shadow: 0 10px 50px rgba(71, 151, 255, 0.8);
 }
 
-/* About styles */
-#about {
+/* About Styles */
+.about {
     width: 100%;
     display: flex;
     align-items: center;
@@ -109,32 +138,27 @@ h1 {
     color: #fff;
 }
 
-#about img {
-    border-radius: 20px;
-    width: 20rem;
-    margin: 5rem;
-    box-shadow: 0 10px 100px rgba(71, 151, 255, 0.8);
-}
-
-#about .text {
+.about__text {
     margin: 5rem;
     width: 40%;
 }
 
-#about .text h2 {
-    font-size: 2.5em;
+.title.title--medium.title--about {
     margin-bottom: 1.5rem;
 }
 
-#about .text h3 {
+.title.title--small.title--about {
     margin: 1.5rem 0;
 }
 
+.image.image--about {
+    display: inline-block;
+    width: 20rem;
+    margin: 5rem;
+}
+
 /* Footer styles */
-footer {
-    color: #fff;
-    font-size: 0.9rem;
-    text-align: center;
+.footer {
     margin: 1rem;
     padding: 0.8rem;
     background: rgba(255, 255, 255, 0.05);
@@ -144,26 +168,50 @@ footer {
     border-radius: 20px;
 }
 
+.footer__text {
+    color: #fff;
+    font-size: 0.9rem;
+    text-align: center;
+
+}
+
+@starting-style {
+    .nav,
+    .hero__button {
+        opacity: 0;
+    }
+}
+
 @media (width <= 1000px) {
-    nav {
+    .nav {
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
-    #about {
+    .about {
         flex-direction: column-reverse;
         min-height: 100vh;
     }
 
-    #about img {
+    .image.image--about {
         width: 10rem;
         margin-top: 2rem;;
     }
 
-    #about .text {
+    .about__text {
         width: 80%;
         margin-top: 3rem;
         text-align: center;
+    }
+}
+
+@media (width <= 650px) {
+    .hero__title-container {
+        margin-inline: 4rem;
+    }
+
+    .hero__title {
+        font-size: 2.5rem;
     }
 }
