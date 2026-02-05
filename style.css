@@ -190,6 +190,10 @@ a {
         justify-content: center;
     }
 
+    .hero__title {
+        width: 26rem;
+    }
+
     .about {
         flex-direction: column-reverse;
         min-height: 100vh;
