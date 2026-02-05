@@ -27,6 +27,7 @@ a {
 
 /* Text Animations */
 .animation__text--fade-in-left {
+    opacity: 0;
     overflow: hidden;
 }
 

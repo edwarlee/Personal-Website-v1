@@ -28,6 +28,7 @@ function splitText(element) {
                     }, index * 40);
                 });
                 observer.unobserve(entry.target);
+                entry.target.style.opacity = '1';
             }
         });
     });
